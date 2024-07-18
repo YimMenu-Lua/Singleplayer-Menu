@@ -30,7 +30,7 @@ sp_gui:add_imgui(function()
                 i = 0
             elseif model == joaat("Player_One") then
                 i = 1
-            elseif model == joaat("Player_Three") then
+            elseif model == joaat("Player_Two") then
                 i = 2
             else
                 return
