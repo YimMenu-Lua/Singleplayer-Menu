@@ -1,6 +1,8 @@
 local sp_gui = gui.get_tab("Single Player")
 
-local crew_unlocked_bitset = 113969 + 1 + 116 --MISC::REGISTER_INT_TO_SAVE(&(Global_113969.f_1.f_116), "Crew_Unlocked_Bitset");
+local singleplayer_global  = 113969
+local crew_unlocked_bitset = singleplayer_global + 1 + 116 --MISC::REGISTER_INT_TO_SAVE(&(Global_113969.f_1.f_116), "Crew_Unlocked_Bitset");
+local car_mods_bitset      = singleplayer_global + 2366 + 539 + 2241 --STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_wheelsmoke"); shop_controller.c
 
 sp_gui:add_imgui(function()
 
@@ -40,5 +42,11 @@ sp_gui:add_imgui(function()
     
     if ImGui.Button("Unlock All Heist Crew") then
         globals.set_int(crew_unlocked_bitset, -1)
+    end
+	
+	if ImGui.Button("Unlock All Car Mods") then
+        for i = 1, 4, 1 do
+			globals.set_int(car_mods_bitset + i, -1)
+		end
     end
 end)
