@@ -43,10 +43,16 @@ sp_gui:add_imgui(function()
     if ImGui.Button("Unlock All Heist Crew") then
         globals.set_int(crew_unlocked_bitset, -1)
     end
-	
-	if ImGui.Button("Unlock All Car Mods") then
+    
+    if ImGui.Button("Unlock All Car Mods") then
         for i = 1, 4, 1 do
-			globals.set_int(car_mods_bitset + i, -1)
-		end
+            globals.set_int(car_mods_bitset + i, -1)
+        end
+    end
+    
+    if ImGui.Button("Unlock all SP Exclusives") then
+        script.run_in_fiber(function()
+            stats.set_int("SP_UNLOCK_EXCLUS_CONTENT", -1)
+        end)
     end
 end)
