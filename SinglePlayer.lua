@@ -55,4 +55,8 @@ sp_gui:add_imgui(function()
             stats.set_int("SP_UNLOCK_EXCLUS_CONTENT", -1)
         end)
     end
+	
+	if ImGui.Button("Skip stupid yoga mission") then
+        locals.set_int("family5", 591, 18)
+    end
 end)
